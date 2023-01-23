@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Strona próba</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+    <main>
+        <header data-thq="thq-navbar" class="navbar-interactive">
+            <div class = "Domyslna" id="Domyslne"> 
+            <div style=" width: 25%; height: 30px; color: rgb(214, 0, 0);"></div>
+            <span class="text" id= "Szukaj przedmiotu">
+                <span> Szukaj przedmiotu:</span>
+            </span>
+            <input class="PoleTekstowe" id="PoleSzukania">
+            <button class="przyciskKoszyk" id="PrzyciskSzukaj" onclick="funkcjaSzukaj(1)">
+                Szukaj
+            </button>
+            <div style=" width: 10%; height: 30px; color: aqua;" id ="Navbardiv"></div>
+            <button class="przyciskKoszyk" id="PrzyciskKoszyk" onclick="pokazKoszyk()"> Koszyk </button>
+            </div>
+            <div class = "DomyslnaWygaszona" id = "Logowanie1" style="display: none;">
+                <button id = "Zarejestruj" class="przyciskKoszyk2"> Wróć </button>
+                <div style="width: 200px;"></div>
+                <span class="text"> Email: </span>
+                <input class="PoleTekstowe" id="Logowanie_Mail">
+                <span class="text"> Hasło: </span>
+                <input class="PoleTekstowe" id="Logowanie_Haslo" type="password">
+                <div style="width: 300px;"></div>
+            </div>
+            <button id = "Google" class="przyciskKoszyk2"> Zaloguj </button>
+            <span id = "uid" style="display: none;">  </span>
+        </header>
+        
+        <div  class="navbar2">
+            <span class ="text2"> Szukaj przedmiotu2:</span>
+            <span style="display: flex;">
+                <input class= "PoleTekstowe2" id="PoleSzukania2">
+                <button class="przyciskKoszyk" id="PrzyciskSzukaj2" onclick="funkcjaSzukaj(2)">
+                    Szukaj
+                </button>
+            </span>
+            <button class="przyciskKoszyk3" id="PrzyciskKoszyk3" onclick="pokazKoszyk()"> Koszyk </button>
+            <button id = "Google" class="przyciskKoszyk2"></button>
+
+        </div>
+
+
+
+
+
+        <div class="EkranGlowny" id = KartyPrzedmiotow >
+            <div class="all-items-cards";> </div>
+        </div>
+
+        <div style="justify-content: center; display: none; grid-gap: 50px;" id="Dane">
+            <span class="Nazwa" style="width: 10vw; grid-row: 1; grid-column: 1; margin-top: 20px; justify-content: center; display: flex;"> Imie:</span>
+            <span class="Nazwa" style="width: 20vw; grid-row: 1; grid-column: 2; margin-top: 20px; justify-content: center; display: flex;"> <input class="PoleTekstowe4" id="Imie"></span>
+
+            <span class="Nazwa" style="width: 10vw; grid-row: 2; grid-column: 1; justify-content: center; display: flex;"> Nazwisko:</span>
+            <span class="Nazwa" style="width: 20vw; grid-row: 2; grid-column: 2; justify-content: center; display: flex;"> <input class="PoleTekstowe4" id="Nazwisko"></span>
+
+            <span class="Nazwa" style="width: 10vw; grid-row: 3; grid-column: 1; justify-content: center; display: flex;"> Adres1:</span>
+            <span class="Nazwa" style="width: 20vw; grid-row: 3; grid-column: 2; justify-content: center; display: flex;"> <input class="PoleTekstowe4" id="Adres1"></span>
+
+            <span class="Nazwa" style="width: 10vw; grid-row: 4; grid-column: 1; justify-content: center; display: flex;"> Adres2:</span>
+            <span class="Nazwa" style="width: 20vw; grid-row: 4; grid-column: 2; justify-content: center; display: flex;"> <input class="PoleTekstowe4" id="Adres2"></span>
+
+            <span class="Nazwa" style="width: 10vw; grid-row: 5; grid-column: 1; justify-content: center; display: flex;"> Adres3:</span>
+            <span class="Nazwa" style="width: 20vw; grid-row: 5; grid-column: 2; justify-content: center; display: flex;"> <input class="PoleTekstowe4" id="Adres3"></span>
+
+            <span class="Nazwa" style="width: 10vw; grid-row: 6; grid-column: 1; justify-content: center; display: flex;"> <button class="przyciskKoszyk" onclick="wrocDoKoszyka()"> Wróć </button> </span>
+            <span class="Nazwa" style="width: 20vw; grid-row: 6; grid-column: 2; justify-content: center; display: flex;"> <button class="przyciskKoszyk" onclick="idzDoPodsumowania()"> Podsumowanie </button></span>
+        </div>
+
+        <div class="Koszyk" id="Koszyk2" style="display: none;"> </div>
+        
+        <div id = "podsumowanie1" style="width: 100%;display: none;"  >
+        <div class="PodsumowanieKoszyka" id = "podsumowanie2">
+            <table style="max-width: 80%;">
+                <thead>
+                    <tr>
+                        <td align="center" style = "background-color: rgb(235, 235, 235); width : 50%" > <button class="przyciskOproznij" id = "przyciskOproznij" onclick="Oproznij()"> Opróżnij Koszyk </button> </td>
+                        <td align="center" style = "border-top-left-radius: 30px; border-bottom-left-radius: 30px; width : 18%"> <button class="przyciskKup"   id = "przyciskKup" onclick="przejdzDoAdresu()"> Kup </button> </td>
+                        <td align="center" class = "Nazwa" style = "width : 12%"> Suma: </td>
+                        <td align="center" class = "Nazwa" id = "sumakoszyka2" style = "width : 20%;"> ${SumaKoszyka.toFixed(2)} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+        </div>
+        
+        <div>
+            <div>
+
+            </div>
+            <div id="PodsumowanieZamowienia" class="PodsumowanieZamowienia"></div>
+            <div class="PodsumowanieKoszyka" id = "podsumowanie3" style="display:none">
+                <table style="max-width: 80%;">
+                    <thead>
+                        <tr>
+                            <td align="center" style = "background-color: rgb(235, 235, 235); width : 50%" > </td>
+                            <td align="center" style = "border-top-left-radius: 30px; border-bottom-left-radius: 30px; width : 18%"> <button class="przyciskKup"   id = "przyciskKup" onclick="Kup()"> Kup </button> </td>
+                            <td align="center" class = "Nazwa" style = "width : 12%"> Suma: </td>
+                            <td align="center" class = "Nazwa" id = "sumakoszyka3" style = "width : 20%;" >  </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+
+            <div style="display: none; justify-content: center;">
+            <table style="max-width: 80%;">
+                <thead>
+                    <tr>
+                        <td align="center" style = "background-color: rgb(235, 235, 235); width : 50%" > </td>
+                        <td align="center" style = "width : 18%;background-color: rgb(235, 235, 235)"> </td>
+                        <td align="center" class = "Nazwa" style = "width : 12%;border-top-left-radius: 30px; border-bottom-left-radius: 30px;"> Suma: </td>
+                        <td align="center" class = "Nazwa" id = "sumakoszyka2" style = "width : 20%;"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        </div>
+        </div>
+    </main>
+    <script src="src/index.js"> </script>
+</body>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth , GoogleAuthProvider,signInWithPopup,signInWithEmailAndPassword ,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    let Step = 0;
+
+    const firebaseConfig = 
+    {
+  
+      apiKey: "AIzaSyBlfKcVEet5V7QggFqw95Mql-QGZaGrsGg",
+      authDomain: "magazyn-ba4fa.firebaseapp.com",
+      projectId: "magazyn-ba4fa",
+      storageBucket: "magazyn-ba4fa.appspot.com",
+      messagingSenderId: "662421234384",
+      appId: "1:662421234384:web:484755621bbe5d68abf4d5"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider(app);
+
+
+
+
+
+    Google.addEventListener('click',(e) => 
+    {
+        /*
+       signInWithPopup(auth, provider)
+       .then((result) => 
+       {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            alert(user.displayName)
+       })
+       .catch((error) => 
+       {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            alert(errorMessage)
+        });
+        */
+        
+    Step = 1
+    var uid;
+    var Logowanie = document.getElementById("Logowanie1");
+    var Domyslne = document.getElementById("Domyslne");
+    let email = document.getElementById("Logowanie_Mail").value
+    let haslo = document.getElementById("Logowanie_Haslo").value
+    let done = 0;
+    let done1 = 0;
+    let done2 = 0;
+    let zalogowano = 0;
+    if(Logowanie.style.display == 'none')
+    {
+        Domyslne.classList.remove('Domyslna')
+        Domyslne.classList.remove('DomyslnaWyswietl')
+        Domyslne.classList.add('DomyslnaWygaszona')
+    }
+    else
+    {   
+        console.log(document.getElementById("Logowanie_Mail").value)//'kkosakowski@gmail.com'
+        console.log(haslo)//haslo123
+        Step = 3;
+        signInWithEmailAndPassword(auth, email, haslo)
+        .then((userCredential) => 
+        {
+            Step = 4
+            const user = userCredential.user;
+            uid = user.uid;
+            document.getElementById("uid").textContent = uid;
+            //alert(uid)
+            document.getElementById("Google").textContent = "Zalogowano"
+
+            Logowanie.classList.remove('DomyslnaWyswietl')
+            Logowanie.classList.add('DomyslnaWygaszona')
+        })
+        .catch((error) => 
+        {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode)
+            if(errorCode == 'auth/invalid-email')
+            {
+                alert("brak takiego użytkownika")
+            }
+            if(errorCode == 'auth/wrong-password')
+            {
+                alert("Nieprawidłowe hasło")
+            }
+            
+        });
+    }
+
+    Domyslne.onanimationend = function()
+    {
+        if(Logowanie.style.display == 'none' && Step == 1)
+        {
+            Logowanie.classList.remove('DomyslnaWygaszona')
+            Logowanie.classList.add('DomyslnaWyswietl')
+            Domyslne.style.display = 'none'
+            Logowanie.style.display = 'flex'
+            Step = 2;
+        }
+        else
+        {
+            Step = 0;
+        }
+    }
+
+    Logowanie.onanimationend = function()
+    {
+        if(Step == 4)
+        {
+            Domyslne.classList.remove('DomyslnaWygaszona')
+            Domyslne.classList.add('DomyslnaWyswietl')
+            Domyslne.style.display = 'flex'
+            Logowanie.style.display = 'none'
+            done2 = 1;
+            Step = 5
+        }
+    }
+
+    /*
+createUserWithEmailAndPassword(auth, 'kkosakowski21@gmail.com', 'haslo123')
+        .then((userCredential) => 
+        {
+          const user = userCredential.user;
+            alert(user.uid)
+        })
+        .catch((error) => 
+        {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+            alert(errorMessage)
+        });
+        */
+  });
+
+  Zarejestruj.addEventListener('click',(e) => 
+    {
+        var Logowanie = document.getElementById("Logowanie1");
+    Logowanie.classList.remove('DomyslnaWyswietl')
+    Logowanie.classList.add('DomyslnaWygaszona')
+    Logowanie.onanimationend = function()
+    {
+            Domyslne.classList.remove('DomyslnaWygaszona')
+            Domyslne.classList.add('DomyslnaWyswietl')
+            Domyslne.style.display = 'flex'
+            Logowanie.style.display = 'none'
+            Step = 0
+    }
+    });
+  </script>
+
+<div style="max-width: 80%;"></div>
+</html>
